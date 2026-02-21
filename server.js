@@ -6,13 +6,6 @@ const {connectDB,checkConnection} = require("./config/db");
 const port = process.env.PORT;
 
 
-app.get("/app", (req, res) => {
-    console.log("Route hit");
-    res.status(200).json({
-        success: true,
-        message: "Server is running 🚀"
-    });
-});
 app.get('/health', async (req, res) => {
     try {
         const healthStatus = await checkConnection();
