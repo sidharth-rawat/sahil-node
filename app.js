@@ -11,9 +11,10 @@ app.use(cors())
 app.use("/api/v1/users", authRoutes)
 app.use("/api/v1/todo", todoRoutes)
 
-app.all("*", (req, res, next) => {
+app.use((req, res, next) => {
     next(new AppError(`path not found ${req.originalUrl}`, 404));
 });
+
 
 
 app.use(globalError)
